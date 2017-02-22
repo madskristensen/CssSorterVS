@@ -22,10 +22,10 @@
         </Groups>
 
         <Menus>
-            <Menu guid="guidPackageCmdSet" id="ContextMenu" priority="0x0200" type="Menu">
-                <Parent guid="guidPackageCmdSet" id="ContextMenuGroup" />
+            <Menu guid="guidPackageCmdSet" id="ContextMenu" priority="0x0600" type="Menu">
+                <Parent guid="CssCmdSet" id="groupFormat" />
                 <Strings>
-                    <ButtonText>CSS Sorting</ButtonText>
+                    <ButtonText>Sort Properties</ButtonText>
                 </Strings>
             </Menu>
         </Menus>
@@ -114,6 +114,7 @@
 
         <GuidSymbol name="CssCmdSet" value="{64DA400E-B4AD-4D67-AA92-4B7ACB01ECD5}">
             <IDSymbol name="cssContextMenu" value="2" />
+            <IDSymbol name="groupFormat" value="130" />
         </GuidSymbol>
     </Symbols>
 </CommandTable>

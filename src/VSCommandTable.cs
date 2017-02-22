@@ -39,5 +39,6 @@ namespace CssSorter
         public const int SortConcentricId = 0x0400;
         public const int RunOnFormatId = 0x0500;
         public const int cssContextMenu = 0x0002;
+        public const int groupFormat = 0x0082;
     }
 }

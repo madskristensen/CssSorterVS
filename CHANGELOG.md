@@ -1,8 +1,5 @@
 # Road map
 
-- [x] Make sorting mode configuration
-- [x] Apply sorting on *Format Document*
-- [ ] Maintain scroll position after sorting
 - [ ] Make work on `.less` and `.scss` files
 
 Features that have a checkmark are complete and available for
@@ -13,6 +10,11 @@ download in the
 
 These are the changes to each version that has been released
 on the official Visual Studio extension gallery.
+
+## 0.6
+
+- [x] Make sorting mode configuration
+- [x] Apply sorting on *Format Document*
 
 ## 0.5
 

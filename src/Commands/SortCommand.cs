@@ -1,5 +1,4 @@
-﻿using EnvDTE;
-using Microsoft.VisualStudio;
+﻿using Microsoft.VisualStudio;
 using Microsoft.VisualStudio.OLE.Interop;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Text;
@@ -56,12 +55,6 @@ namespace CssSorter
                 edit.Apply();
 
                 undo.Complete();
-            }
-
-            if (!CssSorterPackage.Options.RunOnFormat)
-            {
-                var dte = (DTE)ServiceProvider.GlobalProvider.GetService(typeof(DTE));
-                dte.ExecuteCommand("Edit.FormatDocument");
             }
 
             return true;
