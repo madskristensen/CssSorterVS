@@ -77,7 +77,9 @@ namespace CssSorter
             if (!await EnsurePackageInstalled())
                 return null;
 
-            var start = new ProcessStartInfo("cmd", $"/c \"{_executable}\" --order smacss")
+            string sortingMode = GetSortingMode();
+
+            var start = new ProcessStartInfo("cmd", $"/c \"{_executable}\" --order {sortingMode}")
             {
                 UseShellExecute = false,
                 CreateNoWindow = true,
@@ -114,6 +116,19 @@ namespace CssSorter
                 Logger.Log(ex);
                 return null;
             }
+        }
+
+        private string GetSortingMode()
+        {
+            switch (CssSorterPackage.Options.Mode)
+            {
+                case Mode.Alphabetically:
+                    return "alphabetically";
+                case Mode.SMACSS:
+                    return "smacss";
+            }
+
+            return "concentric-css";
         }
 
         private static string GetConfigPath()

@@ -1,61 +1,103 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-  <Extern href="stdidcmd.h"/>
-  <Extern href="vsshlids.h"/>
-  <Include href="KnownImageIds.vsct"/>
+    <Extern href="stdidcmd.h"/>
+    <Extern href="vsshlids.h"/>
+    <Include href="KnownImageIds.vsct"/>
 
-  <Commands package="guidPackage">
-    <Groups>
-      <Group guid="guidPackageCmdSet" id="MyMenuGroup" priority="0x0300">
-        <Parent guid="CssCmdSet" id="cssContextMenu"/>
-      </Group>
-    </Groups>
+    <Commands package="guidPackage">
+        <Groups>
+            <Group guid="guidPackageCmdSet" id="ContextMenuGroup" priority="0x0300">
+                <Parent guid="CssCmdSet" id="cssContextMenu"/>
+            </Group>
+            <Group guid="guidPackageCmdSet" id="ExecuteGroup" priority="0x0200">
+                <Parent guid="guidPackageCmdSet" id="ContextMenu"/>
+            </Group>
+            <Group guid="guidPackageCmdSet" id="SettingsGroup" priority="0x0300">
+                <Parent guid="guidPackageCmdSet" id="ContextMenu"/>
+            </Group>
+        </Groups>
 
-    <Buttons>
-      <Button guid="guidPackageCmdSet" id="SortId" priority="0x0100" type="Button">
-        <Parent guid="guidPackageCmdSet" id="MyMenuGroup" />
-        <Icon guid="ImageCatalogGuid" id="BuildStyle"/>
-        <CommandFlag>IconIsMoniker</CommandFlag>
-        <CommandFlag>DefaultDisabled</CommandFlag>
-        <CommandFlag>DefaultInvisible</CommandFlag>
-        <CommandFlag>DynamicVisibility</CommandFlag>
-        <CommandFlag>TextChanges</CommandFlag>
-        <Strings>
-          <ButtonText>Sort properties</ButtonText>
-          <CanonicalName>SortCssProperties</CanonicalName>
-        </Strings>
-      </Button>
-    </Buttons>
-  </Commands>
+        <Menus>
+            <Menu guid="guidPackageCmdSet" id="ContextMenu" priority="0x0200" type="Menu">
+                <Parent guid="guidPackageCmdSet" id="ContextMenuGroup" />
+                <Strings>
+                    <ButtonText>CSS Sorting</ButtonText>
+                </Strings>
+            </Menu>
+        </Menus>
 
-  <KeyBindings>
-    <KeyBinding guid="guidPackageCmdSet" id="SortId" mod1="Control" mod2="Control" key1="K" key2="M" editor="CssEditor"/>
-    <KeyBinding guid="guidPackageCmdSet" id="SortId" mod1="Control" mod2="Control" key1="K" key2="M" editor="CssEditorWithEncoding"/>
-    <!--<KeyBinding guid="guidPackageCmdSet" id="SortId" mod1="Control" mod2="Control" key1="K" key2="M" editor="LessEditor"/>
-    <KeyBinding guid="guidPackageCmdSet" id="SortId" mod1="Control" mod2="Control" key1="K" key2="M" editor="LessEditorWithEncoding"/>
-    <KeyBinding guid="guidPackageCmdSet" id="SortId" mod1="Control" mod2="Control" key1="K" key2="M" editor="ScssEditor"/>
-    <KeyBinding guid="guidPackageCmdSet" id="SortId" mod1="Control" mod2="Control" key1="K" key2="M" editor="ScssEditorWithEncoding"/>-->
-  </KeyBindings>
+        <Buttons>
+            <Button guid="guidPackageCmdSet" id="SortId" priority="0x0100" type="Button">
+                <Parent guid="guidPackageCmdSet" id="ExecuteGroup" />
+                <Icon guid="ImageCatalogGuid" id="BuildStyle"/>
+                <CommandFlag>IconIsMoniker</CommandFlag>
+                <CommandFlag>DefaultDisabled</CommandFlag>
+                <CommandFlag>DefaultInvisible</CommandFlag>
+                <CommandFlag>DynamicVisibility</CommandFlag>
+                <CommandFlag>TextChanges</CommandFlag>
+                <Strings>
+                    <ButtonText>Sort Properties</ButtonText>
+                    <CanonicalName>SortCssProperties</CanonicalName>
+                </Strings>
+            </Button>
+            <Button guid="guidPackageCmdSet" id="SortAlphabeticallyId" priority="0x0100" type="Button">
+                <Parent guid="guidPackageCmdSet" id="SettingsGroup" />
+                <Strings>
+                    <ButtonText>Sort Alphabetically</ButtonText>
+                    <CanonicalName>SortCssAlphabetically</CanonicalName>
+                </Strings>
+            </Button>
+            <Button guid="guidPackageCmdSet" id="SortSmacssId" priority="0x0200" type="Button">
+                <Parent guid="guidPackageCmdSet" id="SettingsGroup" />
+                <Strings>
+                    <ButtonText>Sort SMACSS</ButtonText>
+                    <CanonicalName>SortCssSmacss</CanonicalName>
+                </Strings>
+            </Button>
+            <Button guid="guidPackageCmdSet" id="SortconcentricId" priority="0x0300" type="Button">
+                <Parent guid="guidPackageCmdSet" id="SettingsGroup" />
+                <Strings>
+                    <ButtonText>Sort concentric</ButtonText>
+                    <CanonicalName>SortCssConcentric</CanonicalName>
+                </Strings>
+            </Button>
+        </Buttons>
+    </Commands>
 
-  <Symbols>
-    <GuidSymbol name="guidPackage" value="{fe3dc58f-c4c7-4d03-a8de-a53fbcf7ee20}" />
+    <KeyBindings>
+        <KeyBinding guid="guidPackageCmdSet" id="SortId" mod1="Control" mod2="Control" key1="K" key2="M" editor="CssEditor"/>
+        <KeyBinding guid="guidPackageCmdSet" id="SortId" mod1="Control" mod2="Control" key1="K" key2="M" editor="CssEditorWithEncoding"/>
+        <!--<KeyBinding guid="guidPackageCmdSet" id="SortId" mod1="Control" mod2="Control" key1="K" key2="M" editor="LessEditor"/>
+        <KeyBinding guid="guidPackageCmdSet" id="SortId" mod1="Control" mod2="Control" key1="K" key2="M" editor="LessEditorWithEncoding"/>
+        <KeyBinding guid="guidPackageCmdSet" id="SortId" mod1="Control" mod2="Control" key1="K" key2="M" editor="ScssEditor"/>
+        <KeyBinding guid="guidPackageCmdSet" id="SortId" mod1="Control" mod2="Control" key1="K" key2="M" editor="ScssEditorWithEncoding"/>-->
+    </KeyBindings>
 
-    <GuidSymbol name="guidPackageCmdSet" value="{e4cb03b4-95a5-4808-b6c6-d6f24387d39b}">
-      <IDSymbol name="MyMenuGroup" value="0x1020" />
-      <IDSymbol name="SortId" value="0x0100" />
-    </GuidSymbol>
+    <Symbols>
+        <GuidSymbol name="guidPackage" value="{fe3dc58f-c4c7-4d03-a8de-a53fbcf7ee20}" />
 
-    <!-- Exising Editor guids-->
-    <GuidSymbol name="CssEditor" value="{a5401142-f49d-43db-90b1-f57ba349e55c}" />
-    <GuidSymbol name="CssEditorWithEncoding" value="{226F7E34-0AE8-4157-9CD8-B66B4EAF2C7B}" />
-    <!--<GuidSymbol name="LessEditor" value="{28C69EDA-EDF9-4CA8-9EBE-443348B6D916}" />
-    <GuidSymbol name="LessEditorWithEncoding" value="{eb284e36-4c91-422b-8df6-4dfc2ec3d350}" />
-    <GuidSymbol name="ScssEditor" value="{181FE41B-5A5D-479F-9F8F-BF665F4EBC2A}" />
-    <GuidSymbol name="ScssEditorWithEncoding" value="{52334EAD-0711-4a03-804E-7169F077A621}" />-->
+        <GuidSymbol name="guidPackageCmdSet" value="{e4cb03b4-95a5-4808-b6c6-d6f24387d39b}">
+            <IDSymbol name="ContextMenuGroup" value="0x1020" />
+            <IDSymbol name="SettingsGroup" value="0x1030" />
+            <IDSymbol name="ExecuteGroup" value="0x1040" />
+            <IDSymbol name="ContextMenu" value="0x1200" />
+            <IDSymbol name="SortId" value="0x0100" />
+            <IDSymbol name="SortAlphabeticallyId" value="0x0200" />
+            <IDSymbol name="SortSmacssId" value="0x0300" />
+            <IDSymbol name="SortconcentricId" value="0x0400" />
+        </GuidSymbol>
 
-    <GuidSymbol name="CssCmdSet" value="{64DA400E-B4AD-4D67-AA92-4B7ACB01ECD5}">
-      <IDSymbol name="cssContextMenu" value="2" />
-    </GuidSymbol>
-  </Symbols>
+        <!-- Exising Editor guids-->
+        <GuidSymbol name="CssEditor" value="{a5401142-f49d-43db-90b1-f57ba349e55c}" />
+        <GuidSymbol name="CssEditorWithEncoding" value="{226F7E34-0AE8-4157-9CD8-B66B4EAF2C7B}" />
+        <!--<GuidSymbol name="LessEditor" value="{28C69EDA-EDF9-4CA8-9EBE-443348B6D916}" />
+        <GuidSymbol name="LessEditorWithEncoding" value="{eb284e36-4c91-422b-8df6-4dfc2ec3d350}" />
+        <GuidSymbol name="ScssEditor" value="{181FE41B-5A5D-479F-9F8F-BF665F4EBC2A}" />
+        <GuidSymbol name="ScssEditorWithEncoding" value="{52334EAD-0711-4a03-804E-7169F077A621}" />-->
+
+        <GuidSymbol name="CssCmdSet" value="{64DA400E-B4AD-4D67-AA92-4B7ACB01ECD5}">
+            <IDSymbol name="cssContextMenu" value="2" />
+        </GuidSymbol>
+    </Symbols>
 </CommandTable>

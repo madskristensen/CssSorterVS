@@ -49,11 +49,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Commands\BaseCommand.cs" />
+    <Compile Include="Commands\ModeCommand.cs" />
     <Compile Include="Commands\SortCommand.cs" />
     <Compile Include="Commands\CommandRegistration.cs" />
     <Compile Include="Helpers\Logger.cs" />
     <Compile Include="NodeProcess.cs" />
     <Compile Include="CssSorterPackage.cs" />
+    <Compile Include="Options.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="source.extension.cs">
       <DependentUpon>source.extension.vsixmanifest</DependentUpon>

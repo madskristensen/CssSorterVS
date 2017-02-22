@@ -45,6 +45,7 @@ namespace CssSorter
             NodeProcess node = view.Properties.GetOrCreateSingletonProperty(() => new NodeProcess());
 
             AddCommandFilter(textViewAdapter, new SortCommand(view, undoManager, node));
+            AddCommandFilter(textViewAdapter, new ModeCommand());
 
             if (!node.IsReadyToExecute())
             {

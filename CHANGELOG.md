@@ -1,8 +1,8 @@
 # Road map
 
+- [x] Make sorting mode configuration
 - [ ] Apply sorting on *Format Document*
 - [ ] Make work on `.less` and `.scss` files
-- [ ] Make sorting mode configuration
 
 Features that have a checkmark are complete and available for
 download in the
