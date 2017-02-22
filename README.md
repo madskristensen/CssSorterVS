@@ -2,7 +2,7 @@
 
 [![Build status](https://ci.appveyor.com/api/projects/status/qpgnlho3cps0f7qs?svg=true)](https://ci.appveyor.com/project/madskristensen/csssortervs)
 
-Download this extension from the [Marketplace](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.CSSAutoPrefixer)
+Download this extension from the [Marketplace](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.CSSSorter)
 or get the [CI build](http://vsixgallery.com/extension/87534672-5a41-4ea1-a145-17f1a8f5502a/).
 
 ---------------------------------------
