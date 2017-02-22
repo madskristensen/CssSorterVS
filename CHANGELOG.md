@@ -1,7 +1,8 @@
 # Road map
 
 - [x] Make sorting mode configuration
-- [ ] Apply sorting on *Format Document*
+- [x] Apply sorting on *Format Document*
+- [ ] Maintain scroll position after sorting
 - [ ] Make work on `.less` and `.scss` files
 
 Features that have a checkmark are complete and available for

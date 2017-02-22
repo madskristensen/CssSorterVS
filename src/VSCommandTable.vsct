@@ -13,7 +13,10 @@
             <Group guid="guidPackageCmdSet" id="ExecuteGroup" priority="0x0200">
                 <Parent guid="guidPackageCmdSet" id="ContextMenu"/>
             </Group>
-            <Group guid="guidPackageCmdSet" id="SettingsGroup" priority="0x0300">
+            <Group guid="guidPackageCmdSet" id="RunGroup" priority="0x0300">
+                <Parent guid="guidPackageCmdSet" id="ContextMenu"/>
+            </Group>
+            <Group guid="guidPackageCmdSet" id="SettingsGroup" priority="0x0400">
                 <Parent guid="guidPackageCmdSet" id="ContextMenu"/>
             </Group>
         </Groups>
@@ -41,24 +44,35 @@
                     <CanonicalName>SortCssProperties</CanonicalName>
                 </Strings>
             </Button>
+
+            <!-- Run on save-->
+            <Button guid="guidPackageCmdSet" id="RunOnFormatId" priority="0x0100" type="Button">
+                <Parent guid="guidPackageCmdSet" id="RunGroup" />
+                <Strings>
+                    <ButtonText>Run on Format Document</ButtonText>
+                    <CanonicalName>RunOnFormatDocument</CanonicalName>
+                </Strings>
+            </Button>
+
+            <!-- Sorting modes -->
             <Button guid="guidPackageCmdSet" id="SortAlphabeticallyId" priority="0x0100" type="Button">
                 <Parent guid="guidPackageCmdSet" id="SettingsGroup" />
                 <Strings>
-                    <ButtonText>Sort Alphabetically</ButtonText>
+                    <ButtonText>Alphabetical Mode</ButtonText>
                     <CanonicalName>SortCssAlphabetically</CanonicalName>
                 </Strings>
             </Button>
             <Button guid="guidPackageCmdSet" id="SortSmacssId" priority="0x0200" type="Button">
                 <Parent guid="guidPackageCmdSet" id="SettingsGroup" />
                 <Strings>
-                    <ButtonText>Sort SMACSS</ButtonText>
+                    <ButtonText>SMACSS Mode</ButtonText>
                     <CanonicalName>SortCssSmacss</CanonicalName>
                 </Strings>
             </Button>
-            <Button guid="guidPackageCmdSet" id="SortconcentricId" priority="0x0300" type="Button">
+            <Button guid="guidPackageCmdSet" id="SortConcentricId" priority="0x0300" type="Button">
                 <Parent guid="guidPackageCmdSet" id="SettingsGroup" />
                 <Strings>
-                    <ButtonText>Sort concentric</ButtonText>
+                    <ButtonText>Concentric Mode</ButtonText>
                     <CanonicalName>SortCssConcentric</CanonicalName>
                 </Strings>
             </Button>
@@ -81,11 +95,13 @@
             <IDSymbol name="ContextMenuGroup" value="0x1020" />
             <IDSymbol name="SettingsGroup" value="0x1030" />
             <IDSymbol name="ExecuteGroup" value="0x1040" />
+            <IDSymbol name="RunGroup" value="0x1050" />
             <IDSymbol name="ContextMenu" value="0x1200" />
             <IDSymbol name="SortId" value="0x0100" />
             <IDSymbol name="SortAlphabeticallyId" value="0x0200" />
             <IDSymbol name="SortSmacssId" value="0x0300" />
-            <IDSymbol name="SortconcentricId" value="0x0400" />
+            <IDSymbol name="SortConcentricId" value="0x0400" />
+            <IDSymbol name="RunOnFormatId" value="0x0500" />
         </GuidSymbol>
 
         <!-- Exising Editor guids-->

@@ -49,7 +49,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Commands\BaseCommand.cs" />
+    <Compile Include="Commands\RunOnFormatCommand.cs" />
     <Compile Include="Commands\ModeCommand.cs" />
+    <Compile Include="Commands\FormatDocumentCommand.cs" />
     <Compile Include="Commands\SortCommand.cs" />
     <Compile Include="Commands\CommandRegistration.cs" />
     <Compile Include="Helpers\Logger.cs" />

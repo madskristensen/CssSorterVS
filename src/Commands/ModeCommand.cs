@@ -26,7 +26,7 @@ namespace CssSorter
                     case PackageIds.SortSmacssId:
                         Execute(Mode.SMACSS);
                         return VSConstants.S_OK;
-                    case PackageIds.SortconcentricId:
+                    case PackageIds.SortConcentricId:
                         Execute(Mode.Concentric);
                         return VSConstants.S_OK;
                 }
@@ -55,7 +55,7 @@ namespace CssSorter
                     prgCmds[0].cmdf = GetFlags(Mode.SMACSS);
                     return VSConstants.S_OK;
                 }
-                else if (prgCmds[0].cmdID == PackageIds.SortconcentricId)
+                else if (prgCmds[0].cmdID == PackageIds.SortConcentricId)
                 {
                     prgCmds[0].cmdf = GetFlags(Mode.Concentric);
                     return VSConstants.S_OK;

@@ -31,11 +31,13 @@ namespace CssSorter
         public const int ContextMenuGroup = 0x1020;
         public const int SettingsGroup = 0x1030;
         public const int ExecuteGroup = 0x1040;
+        public const int RunGroup = 0x1050;
         public const int ContextMenu = 0x1200;
         public const int SortId = 0x0100;
         public const int SortAlphabeticallyId = 0x0200;
         public const int SortSmacssId = 0x0300;
-        public const int SortconcentricId = 0x0400;
+        public const int SortConcentricId = 0x0400;
+        public const int RunOnFormatId = 0x0500;
         public const int cssContextMenu = 0x0002;
     }
 }

@@ -32,7 +32,7 @@ namespace CssSorter
             {
                 if (_node != null && _node.IsReadyToExecute())
                 {
-                    ThreadHelper.JoinableTaskFactory.RunAsync(ExecuteAsync);
+                    ThreadHelper.JoinableTaskFactory.RunAsync(() => ExecuteAsync(_view, _undoManager, _node));
                 }
 
                 return VSConstants.S_OK;
@@ -41,24 +41,27 @@ namespace CssSorter
             return Next.Exec(pguidCmdGroup, nCmdID, nCmdexecopt, pvaIn, pvaOut);
         }
 
-        private async Task<bool> ExecuteAsync()
+        public static async Task<bool> ExecuteAsync(IWpfTextView view, ITextBufferUndoManager undoManager, NodeProcess node)
         {
-            string input = _view.TextBuffer.CurrentSnapshot.GetText();
-            string output = await _node.ExecuteProcess(input);
+            string input = view.TextBuffer.CurrentSnapshot.GetText();
+            string output = await node.ExecuteProcess(input);
 
             if (string.IsNullOrEmpty(output) || input == output)
                 return false;
 
-            using (ITextEdit edit = _view.TextBuffer.CreateEdit())
-            using (ITextUndoTransaction undo = _undoManager.TextBufferUndoHistory.CreateTransaction(Vsix.Name))
+            using (ITextEdit edit = view.TextBuffer.CreateEdit())
+            using (ITextUndoTransaction undo = undoManager.TextBufferUndoHistory.CreateTransaction("Sort properties"))
             {
-                edit.Replace(0, _view.TextBuffer.CurrentSnapshot.Length, output);
+                edit.Replace(0, view.TextBuffer.CurrentSnapshot.Length, output);
                 edit.Apply();
 
+                undo.Complete();
+            }
+
+            if (!CssSorterPackage.Options.RunOnFormat)
+            {
                 var dte = (DTE)ServiceProvider.GlobalProvider.GetService(typeof(DTE));
                 dte.ExecuteCommand("Edit.FormatDocument");
-
-                undo.Complete();
             }
 
             return true;
