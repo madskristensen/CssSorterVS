@@ -28,7 +28,7 @@ namespace CssSorter
                     {
                         if (_options == null)
                         {
-                            LoadPackage();
+                            EnsurePackageLoaded();
                         }
                     }
                 }
@@ -44,7 +44,7 @@ namespace CssSorter
             return base.InitializeAsync(cancellationToken, progress);
         }
 
-        private static void LoadPackage()
+        private static void EnsurePackageLoaded()
         {
             var shell = (IVsShell)GetGlobalService(typeof(SVsShell));
 

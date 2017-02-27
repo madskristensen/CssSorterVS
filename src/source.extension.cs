@@ -11,7 +11,7 @@ namespace CssSorter
         public const string Name = "CSS Sorter";
         public const string Description = @"Sort CSS properties easily for better readibility and GZIP compression";
         public const string Language = "en-US";
-        public const string Version = "0.6";
+        public const string Version = "0.7.1";
         public const string Author = "Mads Kristensen";
         public const string Tags = "CSS, LESS, Sass, Scss, Sorting";
     }

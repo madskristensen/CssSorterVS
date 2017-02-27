@@ -19,7 +19,6 @@ namespace CssSorter
     internal sealed class CommandRegistration : IVsTextViewCreationListener
     {
         public static string[] FileExtensions { get; } = { ".css" };
-        private uint _cookie;
 
         [Import]
         private IVsEditorAdaptersFactoryService AdaptersFactory { get; set; }
@@ -33,7 +32,6 @@ namespace CssSorter
         public async void VsTextViewCreated(IVsTextView textViewAdapter)
         {
             IWpfTextView view = AdaptersFactory.GetWpfTextView(textViewAdapter);
-            view.Closed += OnViewClosed;
 
             if (!DocumentService.TryGetTextDocument(view.TextBuffer, out ITextDocument doc))
                 return;
@@ -48,25 +46,11 @@ namespace CssSorter
 
             AddCommandFilter(textViewAdapter, new SortCommand(view, undoManager, node));
             AddCommandFilter(textViewAdapter, new ModeCommand());
-            AddCommandFilter(textViewAdapter, new RunOnFormatCommand());
-
-            var formatCommand = new FormatDocumentCommand(view, undoManager, node);
-            AddCommandFilter(textViewAdapter, formatCommand);
-
-            // FormatDocument is handled exclusively by the CSS editor, so we need to inject ourselves as early as possible
-            var registerPct = (IVsRegisterPriorityCommandTarget)ServiceProvider.GlobalProvider.GetService(typeof(SVsRegisterPriorityCommandTarget));
-            registerPct.RegisterPriorityCommandTarget(0, formatCommand, out _cookie);
 
             if (!node.IsReadyToExecute())
             {
                 await Install(node);
             }
-        }
-
-        private void OnViewClosed(object sender, EventArgs e)
-        {
-            var registerPct = (IVsRegisterPriorityCommandTarget)ServiceProvider.GlobalProvider.GetService(typeof(SVsRegisterPriorityCommandTarget));
-            registerPct.UnregisterPriorityCommandTarget(_cookie);
         }
 
         private static async System.Threading.Tasks.Task Install(NodeProcess node)

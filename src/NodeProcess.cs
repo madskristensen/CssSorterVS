@@ -9,7 +9,7 @@ namespace CssSorter
 {
     internal class NodeProcess
     {
-        public const string Packages = "css-declaration-sorter@1.6.0";
+        public const string Packages = "postcss-cli css-declaration-sorter@1.6.0 postcss-less postcss-scss";
 
         private static string _installDir = Path.Combine(Path.GetTempPath(), Vsix.Name, Packages.GetHashCode().ToString());
         private static string _executable = Path.Combine(_installDir, "node_modules\\.bin\\cssdeclsort.cmd");
@@ -129,13 +129,6 @@ namespace CssSorter
             }
 
             return "concentric-css";
-        }
-
-        private static string GetConfigPath()
-        {
-            string assembly = Assembly.GetExecutingAssembly().Location;
-            string folder = Path.GetDirectoryName(assembly);
-            return Path.Combine(folder, "Resources\\csscomb.json");
         }
 
         private static void ModifyPathVariable(ProcessStartInfo start)

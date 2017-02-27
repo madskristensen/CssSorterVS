@@ -49,9 +49,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Commands\BaseCommand.cs" />
-    <Compile Include="Commands\RunOnFormatCommand.cs" />
     <Compile Include="Commands\ModeCommand.cs" />
-    <Compile Include="Commands\FormatDocumentCommand.cs" />
     <Compile Include="Commands\SortCommand.cs" />
     <Compile Include="Commands\CommandRegistration.cs" />
     <Compile Include="Helpers\Logger.cs" />
@@ -105,6 +103,7 @@
       <EmbedInteropTypes>False</EmbedInteropTypes>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Microsoft.VisualStudio.ComponentModelHost, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualStudio.CoreUtility, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.VisualStudio.CoreUtility.14.3.25407\lib\net45\Microsoft.VisualStudio.CoreUtility.dll</HintPath>
       <Private>False</Private>

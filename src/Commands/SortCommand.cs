@@ -40,7 +40,7 @@ namespace CssSorter
             return Next.Exec(pguidCmdGroup, nCmdID, nCmdexecopt, pvaIn, pvaOut);
         }
 
-        public static async Task<bool> ExecuteAsync(IWpfTextView view, ITextBufferUndoManager undoManager, NodeProcess node)
+        private static async Task<bool> ExecuteAsync(IWpfTextView view, ITextBufferUndoManager undoManager, NodeProcess node)
         {
             string input = view.TextBuffer.CurrentSnapshot.GetText();
             string output = await node.ExecuteProcess(input);
