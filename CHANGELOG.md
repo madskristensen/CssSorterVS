@@ -11,6 +11,10 @@ download in the
 These are the changes to each version that has been released
 on the official Visual Studio extension gallery.
 
+## 0.8
+
+- [x] Fixed encoding issue
+
 ## 0.6
 
 - [x] Make sorting mode configuration

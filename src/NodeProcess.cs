@@ -96,7 +96,7 @@ namespace CssSorter
             {
                 using (var proc = Process.Start(start))
                 {
-                    using (StreamWriter stream = proc.StandardInput)
+                    using (var stream = new StreamWriter(proc.StandardInput.BaseStream, Encoding.UTF8))
                     {
                         await stream.WriteAsync(input);
                     }
