@@ -8,8 +8,8 @@ using Tasks = System.Threading.Tasks;
 
 namespace CssSorter
 {
-    [PackageRegistration(UseManagedResourcesOnly = true)]
-    [InstalledProductRegistration("#110", "#112", Vsix.Version, IconResourceID = 400)]
+    [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
+    [InstalledProductRegistration(Vsix.Name, Vsix.Description, Vsix.Version)]
     [Guid(PackageGuids.guidPackageString)]
     [ProvideOptionPage(typeof(Options), "Web", Vsix.Name, 101, 111, true, new[] { "css", "sort" }, ProvidesLocalizedCategoryName = false)]
     [ProvideMenuResource("Menus.ctmenu", 1)]
